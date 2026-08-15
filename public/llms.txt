@@ -1,0 +1,5 @@
+# Soul Virtues Extractor
+
+Soul Virtues Extractor is a web tool for self-reflection. It turns short writing samples or prompt answers into a practical soul color report with strengths, shadow edges, relationship style, career signals, and a 7-day alignment plan.
+
+It is not a medical, mental health, hiring, or diagnostic tool.
