@@ -17,6 +17,8 @@ const plexMono = IBM_Plex_Mono({
   variable: "--font-mono",
 });
 
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
@@ -33,6 +35,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: site.url,
   },
+  verification: googleVerification ? { google: googleVerification } : undefined,
   openGraph: {
     title: "Soul Virtues Extractor | Find Your Soul Color Profile",
     description: site.description,

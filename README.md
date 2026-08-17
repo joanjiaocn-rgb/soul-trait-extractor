@@ -20,3 +20,5 @@ npm run start
 ## Cloudflare Pages
 
 Use the `main` branch with `npm run build` as the build command and `out` as the build output directory.
+
+To verify the deployed site in Google Search Console, add the HTML tag value as the `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` production environment variable in Cloudflare Pages and redeploy.
