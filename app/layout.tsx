@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Inter } from "next/font/google";
-import { ArrowRight, Mail, ShieldCheck } from "lucide-react";
+import { ArrowRight, ShieldCheck } from "lucide-react";
 import "./globals.css";
 import { routes, site, siteIds } from "@/lib/site";
 
@@ -56,7 +56,6 @@ const schema = {
       "@id": siteIds.organization,
       name: site.name,
       url: site.url,
-      email: site.supportEmail,
     },
     {
       "@type": "WebSite",
@@ -125,10 +124,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                     {route.label}
                   </a>
                 ))}
-                <a href={`mailto:${site.supportEmail}`}>
-                  <Mail size={15} aria-hidden="true" />
-                  Support
-                </a>
               </nav>
             </div>
           </footer>

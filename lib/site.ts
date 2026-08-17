@@ -1,9 +1,8 @@
 export const site = {
   name: "Soul Virtues Extractor",
   shortName: "Soul Virtues",
-  url: "https://soultraitextractor.com",
+  url: "https://soulcolortest.pages.dev",
   description: "A quiet reading of the virtues hidden in your writing.",
-  supportEmail: "support@soultraitextractor.com",
   keywords: [
     "soul virtues extractor",
     "soul color finder",
