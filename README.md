@@ -16,3 +16,7 @@ npm run start
 - The current analyzer uses local scoring rules in the browser.
 - The paid unlock flow is a prototype placeholder.
 - Reports are framed as self-reflection, not diagnosis, therapy, or clinical evaluation.
+
+## Cloudflare Pages
+
+Use the `main` branch with `npm run build` as the build command and `out` as the build output directory.
