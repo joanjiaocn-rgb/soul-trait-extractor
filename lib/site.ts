@@ -1,7 +1,7 @@
 export const site = {
   name: "Soul Virtues Extractor",
   shortName: "Soul Virtues",
-  url: "https://soulcolortest.pages.dev",
+  url: "https://soulcolortest.online",
   description: "A quiet reading of the virtues hidden in your writing.",
   keywords: [
     "soul virtues extractor",
