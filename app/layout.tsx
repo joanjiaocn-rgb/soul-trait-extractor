@@ -18,6 +18,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+const googleAnalyticsId = "G-YK54PPG9WC";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -94,6 +95,20 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
       <head>
         <script defer data-domain="soulcolortest.online" src="https://plausible.shipsolo.io/js/script.js" />
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${googleAnalyticsId}');
+            `,
+          }}
+        />
       </head>
       <body className={`${inter.variable} ${plexMono.variable}`}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
