@@ -195,6 +195,59 @@ button {
   min-height: 650px;
 }
 
+.assessment-hero {
+  min-height: 470px;
+}
+
+.assessment-preview {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+  min-height: 420px;
+  padding: 24px;
+  background:
+    linear-gradient(135deg, rgba(159, 232, 112, 0.08), transparent 46%),
+    var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.assessment-preview ol {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.assessment-preview li {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 14px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.assessment-preview li strong {
+  color: var(--accent);
+  font-family: var(--font-mono), "IBM Plex Mono", monospace;
+}
+
+.assessment-preview li span {
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.assessment-preview p {
+  margin: auto 0 0;
+  color: var(--muted);
+  font-size: 0.7rem;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+}
+
 .hero-copy {
   display: grid;
   align-content: start;
@@ -547,6 +600,146 @@ button {
   grid-template-columns: 1.02fr 0.98fr;
   gap: 16px;
   margin-top: 62px;
+}
+
+.quiz-console {
+  margin-top: 18px;
+}
+
+.quiz-panel {
+  display: grid;
+  gap: 18px;
+  align-content: start;
+}
+
+.quiz-panel .panel-heading {
+  align-items: flex-start;
+}
+
+.quiz-panel .panel-heading h2 {
+  max-width: 600px;
+  margin-top: 8px;
+  font-size: clamp(1.35rem, 2.8vw, 2rem);
+  line-height: 1.18;
+}
+
+.quiz-progress {
+  height: 7px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 2px;
+}
+
+.quiz-progress span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+
+.quiz-options {
+  display: grid;
+  gap: 10px;
+}
+
+.quiz-option {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 70px;
+  padding: 12px 14px;
+  text-align: left;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.018);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  line-height: 1.45;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+
+.quiz-option:hover {
+  transform: translateY(-1px);
+  border-color: var(--line-strong);
+  background: rgba(159, 232, 112, 0.05);
+}
+
+.quiz-option.selected {
+  border-color: rgba(159, 232, 112, 0.72);
+  background: rgba(159, 232, 112, 0.1);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.option-marker {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  color: var(--muted);
+  font-family: var(--font-mono), "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+}
+
+.quiz-option.selected .option-marker {
+  color: #060807;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.quiz-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 4px;
+}
+
+.quiz-footer .button:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+  transform: none;
+}
+
+.result-empty {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  min-height: 420px;
+  gap: 12px;
+}
+
+.result-empty > svg {
+  color: var(--accent);
+}
+
+.result-empty h2,
+.result-empty p {
+  margin: 0;
+}
+
+.result-empty h2 {
+  max-width: 340px;
+  line-height: 1.16;
+}
+
+.result-empty p {
+  max-width: 440px;
+}
+
+.restart-link {
+  width: fit-content;
+  padding: 0;
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.restart-link:hover {
+  color: var(--ink);
 }
 
 .console-panel,
@@ -1014,6 +1207,36 @@ summary:focus-visible {
   .header-actions {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+
+  .assessment-preview {
+    min-height: auto;
+    padding: 18px;
+  }
+
+  .quiz-panel .panel-heading {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .quiz-panel .profile-badge {
+    width: fit-content;
+  }
+
+  .quiz-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .quiz-footer .button {
+    width: 100%;
+    padding-inline: 10px;
+  }
+
+  .quiz-option {
+    grid-template-columns: 30px 1fr;
+    min-height: 76px;
+    padding: 12px;
   }
 
   .button,
