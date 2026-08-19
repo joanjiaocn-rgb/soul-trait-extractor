@@ -1173,12 +1173,277 @@ summary:focus-visible {
   align-items: start;
 }
 
+.report-intro {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: end;
+  padding: 48px 0 32px;
+}
+
+.report-intro h1 {
+  max-width: 720px;
+  margin: 14px 0 0;
+  font-size: clamp(3rem, 7vw, 6.2rem);
+  line-height: 0.92;
+}
+
+.report-intro p {
+  max-width: 560px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.report-intro-mark {
+  display: grid;
+  place-items: center;
+  width: 116px;
+  height: 116px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(255, 154, 85, 0.95) 0 16%, transparent 17%),
+    radial-gradient(circle at 50% 50%, rgba(198, 75, 69, 0.92) 0 44%, transparent 45%),
+    #211513;
+  border: 1px solid rgba(255, 154, 85, 0.38);
+  color: var(--ink);
+  font-family: var(--font-mono), "IBM Plex Mono", monospace;
+  font-weight: 600;
+  box-shadow: 0 0 44px rgba(198, 75, 69, 0.24);
+}
+
+.report-result-shell {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.report-result-main,
+.report-score-panel {
+  padding: 28px;
+}
+
+.report-result-main {
+  background:
+    linear-gradient(135deg, rgba(198, 75, 69, 0.14), transparent 48%),
+    var(--panel);
+}
+
+.report-score-panel {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+  border-left: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.report-result-heading,
+.report-score-head,
+.alignment-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.report-result-heading h2 {
+  margin: 10px 0 0;
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  line-height: 0.92;
+}
+
+.result-color-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 11px;
+  border: 1px solid rgba(255, 123, 110, 0.35);
+  color: var(--ink);
+  font-family: var(--font-mono), "IBM Plex Mono", monospace;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+}
+
+.result-color-chip i {
+  width: 10px;
+  height: 10px;
+  background: var(--coral);
+  border-radius: 50%;
+}
+
+.report-lead {
+  max-width: 680px;
+  margin: 28px 0 20px;
+  color: var(--ink);
+  font-size: 1.15rem;
+  line-height: 1.65;
+}
+
+.report-callout {
+  max-width: 680px;
+  margin-top: 28px;
+  padding: 18px;
+  border-left: 2px solid var(--coral);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.report-callout p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.report-score-head {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+.report-score-head strong {
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.report-score-item {
+  display: grid;
+  gap: 8px;
+}
+
+.report-score-item > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+  font-family: var(--font-mono), "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.report-score-item strong {
+  color: var(--ink);
+}
+
+.report-score-panel > p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.65rem;
+  line-height: 1.5;
+}
+
+.report-sections {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 18px 0;
+}
+
+.report-detail-card {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 14px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.report-detail-card > svg {
+  color: var(--accent);
+}
+
+.report-detail-card h2 {
+  margin: 10px 0 8px;
+  font-size: 1.3rem;
+  line-height: 1.1;
+}
+
+.report-detail-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.alignment-card {
+  padding: 26px 28px;
+  border: 1px solid rgba(159, 232, 112, 0.26);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(159, 232, 112, 0.07), transparent 46%), var(--panel);
+}
+
+.alignment-heading h2 {
+  margin: 10px 0 0;
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  line-height: 1;
+}
+
+.alignment-count {
+  padding: 8px 10px;
+  color: var(--accent);
+  border: 1px solid rgba(159, 232, 112, 0.3);
+  font-size: 0.7rem;
+}
+
+.alignment-card ol {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 32px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: alignment;
+}
+
+.alignment-card li {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 10px;
+  padding: 13px 0;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.alignment-card li span {
+  color: var(--accent);
+  font-family: var(--font-mono), "IBM Plex Mono", monospace;
+}
+
+.report-cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 24px;
+  padding: 56px 0 38px;
+}
+
+.report-cta h2 {
+  margin: 12px 0 0;
+  font-size: clamp(1.8rem, 4vw, 3.4rem);
+  line-height: 0.98;
+}
+
+.report-cta p {
+  margin: 12px 0 0;
+  color: var(--muted);
+}
+
 @media (max-width: 1024px) {
   .hero-grid,
   .console-grid,
   .pricing-grid,
   .band-inner,
   .report-grid,
+  .report-result-shell,
+  .report-sections,
   .sample-layout,
   .split-section {
     grid-template-columns: 1fr;
@@ -1203,6 +1468,11 @@ summary:focus-visible {
 
   .console-grid {
     margin-top: 30px;
+  }
+
+  .report-score-panel {
+    border-top: 1px solid var(--line);
+    border-left: 0;
   }
 }
 
@@ -1246,6 +1516,43 @@ summary:focus-visible {
     width: min(100%, 480px);
     min-height: 550px;
     padding: 52px 24px 28px;
+  }
+
+  .report-intro {
+    align-items: flex-start;
+    padding: 28px 0 24px;
+  }
+
+  .report-intro-mark {
+    width: 72px;
+    height: 72px;
+    font-size: 0.8rem;
+  }
+
+  .report-result-main,
+  .report-score-panel,
+  .alignment-card {
+    padding: 20px;
+  }
+
+  .report-result-heading,
+  .alignment-heading,
+  .report-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .result-color-chip,
+  .alignment-count {
+    width: fit-content;
+  }
+
+  .alignment-card ol {
+    grid-template-columns: 1fr;
+  }
+
+  .report-cta {
+    align-items: flex-start;
   }
 
   .assessment-hero .hero-copy h1 {
