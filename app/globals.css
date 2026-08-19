@@ -196,57 +196,90 @@ button {
 }
 
 .assessment-hero {
+  position: relative;
+  display: block;
   min-height: 470px;
-}
-
-.assessment-preview {
-  display: grid;
-  align-content: start;
-  gap: 18px;
-  min-height: 420px;
-  padding: 24px;
-  background:
-    linear-gradient(135deg, rgba(159, 232, 112, 0.08), transparent 46%),
-    var(--panel);
+  overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius);
+  background: #121816;
   box-shadow: var(--shadow);
 }
 
-.assessment-preview ol {
+.assessment-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(3, 4, 3, 0.96) 0%, rgba(3, 4, 3, 0.78) 34%, rgba(3, 4, 3, 0.16) 68%, rgba(3, 4, 3, 0.12) 100%),
+    url("/images/soul-virtues-hero.jpg") center 38% / cover no-repeat;
+}
+
+.assessment-hero .hero-copy {
+  position: relative;
+  z-index: 1;
+  width: min(520px, 58%);
+  min-height: 570px;
+  padding: 72px 48px 48px;
+}
+
+.assessment-hero .hero-copy h1 {
+  max-width: 8ch;
+  font-size: clamp(3.8rem, 7vw, 6.8rem);
+  line-height: 0.9;
+}
+
+.assessment-hero .hero-copy p {
+  max-width: 400px;
+  font-size: 1.08rem;
+  color: rgba(241, 241, 232, 0.82);
+}
+
+.hero-visual {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero-visual-status {
+  position: absolute;
+  right: 28px;
+  bottom: 72px;
   display: grid;
-  gap: 0;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  border-top: 1px solid var(--line);
+  gap: 6px;
+  padding: 12px 14px;
+  color: rgba(241, 241, 232, 0.8);
+  border: 1px solid rgba(241, 241, 232, 0.3);
+  background: rgba(3, 4, 3, 0.26);
+  backdrop-filter: blur(5px);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
 }
 
-.assessment-preview li {
-  display: grid;
-  grid-template-columns: 42px 1fr;
-  gap: 14px;
-  padding: 18px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.assessment-preview li strong {
-  color: var(--accent);
-  font-family: var(--font-mono), "IBM Plex Mono", monospace;
-}
-
-.assessment-preview li span {
+.hero-visual-status strong {
   color: var(--ink);
-  line-height: 1.5;
+  font-size: 0.9rem;
 }
 
-.assessment-preview p {
-  margin: auto 0 0;
-  color: var(--muted);
-  font-size: 0.7rem;
-  line-height: 1.6;
-  letter-spacing: 0.04em;
+.hero-swatch-rack {
+  position: absolute;
+  right: 28px;
+  bottom: 28px;
+  display: flex;
+  height: 20px;
+  width: 184px;
+  overflow: hidden;
+  border: 1px solid rgba(241, 241, 232, 0.32);
 }
+
+.hero-swatch-rack i { flex: 1; }
+.hero-swatch-rack i:nth-child(1) { background: #c64b45; }
+.hero-swatch-rack i:nth-child(2) { background: #ff9a55; }
+.hero-swatch-rack i:nth-child(3) { background: #f5dc5f; }
+.hero-swatch-rack i:nth-child(4) { background: #4b8f86; }
+.hero-swatch-rack i:nth-child(5) { background: #6bd8df; }
+.hero-swatch-rack i:nth-child(6) { background: #4f79d1; }
+.hero-swatch-rack i:nth-child(7) { background: #c18cff; }
 
 .hero-copy {
   display: grid;
@@ -1209,9 +1242,31 @@ summary:focus-visible {
     grid-template-columns: 1fr 1fr;
   }
 
-  .assessment-preview {
-    min-height: auto;
-    padding: 18px;
+  .assessment-hero .hero-copy {
+    width: min(100%, 480px);
+    min-height: 550px;
+    padding: 52px 24px 28px;
+  }
+
+  .assessment-hero .hero-copy h1 {
+    font-size: clamp(3.2rem, 16vw, 4.8rem);
+  }
+
+  .assessment-hero::before {
+    background:
+      linear-gradient(90deg, rgba(3, 4, 3, 0.94) 0%, rgba(3, 4, 3, 0.56) 68%, rgba(3, 4, 3, 0.12) 100%),
+      url("/images/soul-virtues-hero.jpg") 60% center / cover no-repeat;
+  }
+
+  .hero-visual-status {
+    right: 16px;
+    bottom: 58px;
+  }
+
+  .hero-swatch-rack {
+    right: 16px;
+    bottom: 24px;
+    width: 154px;
   }
 
   .quiz-panel .panel-heading {

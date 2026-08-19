@@ -161,20 +161,15 @@ export function TraitExtractor() {
       <div className="hero-grid assessment-hero">
         <div className="hero-copy">
           <div className="eyebrow mono"><Radar size={15} aria-hidden="true" />SOUL VIRTUES TEST</div>
-          <h1 id="extractor-heading">Find your leading virtue.</h1>
-          <p>Choose the response that feels most like you in seven everyday situations. Your result takes about two minutes.</p>
+          <h1 id="extractor-heading">Soul Virtues Test</h1>
+          <p>Seven choices. One color that reflects how you move through the world.</p>
           <div className="hero-actions"><button className="button primary" onClick={startQuiz}>Start the test<ArrowRight size={16} aria-hidden="true" /></button></div>
           <div className="hero-meta mono"><span>7 questions</span><span>about 2 min</span><span>private by default</span></div>
         </div>
-        <aside className="assessment-preview" aria-label="Test overview">
-          <span className="section-kicker mono">HOW IT WORKS</span>
-          <ol>
-            <li><strong>01</strong><span>Choose what feels natural, not what sounds ideal.</span></li>
-            <li><strong>02</strong><span>Your answers map depth, clarity, connection, and momentum.</span></li>
-            <li><strong>03</strong><span>Receive a strength, a shadow edge, and a next move.</span></li>
-          </ol>
-          <p className="mono">SELF-REFLECTION, NOT A CLINICAL OR PSYCHOLOGICAL ASSESSMENT.</p>
-        </aside>
+        <div className="hero-visual" aria-label="A colorful portrait representing the soul color test">
+          <div className="hero-visual-status mono"><span>YOUR COLOR</span><strong>AWAITING</strong></div>
+          <div className="hero-swatch-rack" aria-label="Seven virtue colors"><i /><i /><i /><i /><i /><i /><i /></div>
+        </div>
       </div>
 
       <div className="console-grid quiz-console">
