@@ -92,6 +92,9 @@ const schema = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        <script defer data-domain="soulcolortest.online" src="https://plausible.shipsolo.io/js/script.js" />
+      </head>
       <body className={`${inter.variable} ${plexMono.variable}`}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
         <div className="page-shell">
