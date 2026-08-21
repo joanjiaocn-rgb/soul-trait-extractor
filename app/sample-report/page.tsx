@@ -1,4 +1,4 @@
-import { ArrowRight, Brain, BriefcaseBusiness, HeartHandshake, Target } from "lucide-react";
+import { ArrowRight, Brain, BriefcaseBusiness, Compass, HeartHandshake, MessageCircleQuestion, Target } from "lucide-react";
 
 const dimensions = [
   { label: "Depth", value: 78, color: "var(--ink)" },
@@ -35,7 +35,7 @@ export default function SampleReportPage() {
             <div><span className="section-kicker mono">LEADING VIRTUE / 01</span><h2 id="result-heading">Determination</h2></div>
             <span className="result-color-chip"><i />Red</span>
           </div>
-          <p className="report-lead">You process the world through observation before action. You are not passive; you are selective. You want enough signal to trust your next move.</p>
+          <p className="report-lead">You process the world through movement. Once a goal feels meaningful, you narrow the distance between intention and action and help other people see what can happen next.</p>
           <div className="trait-pills"><span>Focused</span><span>Persistent</span><span>Pattern-aware</span><span>Self-directed</span></div>
           <div className="report-callout"><span className="section-kicker mono">THE SHORT READ</span><p>You are at your best when a difficult situation can become a clear next step. Your edge is follow-through. Your work is learning when to move before every variable is resolved.</p></div>
         </div>
@@ -47,15 +47,22 @@ export default function SampleReportPage() {
         </aside>
       </section>
 
+      <section className="report-narrative" aria-labelledby="pattern-heading">
+        <div><span className="section-kicker mono">YOUR PATTERN IN MOTION</span><h2 id="pattern-heading">Momentum is how you make meaning.</h2></div>
+        <div className="report-narrative-copy"><p>You are likely to feel most like yourself when effort has direction. A vague possibility becomes energizing when it can be named, scheduled, built, or tested. This does not mean you are always impatient; it means progress helps you think.</p><p>Others may experience you as steady in moments that make them hesitate. Your growth is not to become less decisive. It is to leave enough room for emotion, uncertainty, and other people's timing to add useful information before the next move is set.</p></div>
+      </section>
+
       <section className="report-sections" aria-label="Example report sections">
-        <article className="report-detail-card"><Brain size={21} aria-hidden="true" /><div><span className="section-kicker mono">01 / STRENGTH</span><h2>Make the hard thing legible.</h2><p>You stay with complex problems long enough to find the thread. People may come to you when a situation feels too tangled to name.</p></div></article>
-        <article className="report-detail-card"><Target size={21} aria-hidden="true" /><div><span className="section-kicker mono">02 / SHADOW EDGE</span><h2>Waiting for perfect signal.</h2><p>Your caution can look like patience, but sometimes it is a way to avoid the vulnerability of asking directly or being seen mid-process.</p></div></article>
-        <article className="report-detail-card"><HeartHandshake size={21} aria-hidden="true" /><div><span className="section-kicker mono">03 / RELATIONSHIP STYLE</span><h2>Steady, honest, and low-drama.</h2><p>You want consistency more than performance. You open faster with people who communicate clearly and do what they say they will do.</p></div></article>
-        <article className="report-detail-card"><BriefcaseBusiness size={21} aria-hidden="true" /><div><span className="section-kicker mono">04 / CAREER SIGNALS</span><h2>Follow-through is your unfair advantage.</h2><p>You may thrive in strategy, research, product work, writing, analysis, or any role where judgment has to become something useful.</p></div></article>
+        <article className="report-detail-card"><Brain size={21} aria-hidden="true" /><div><span className="section-kicker mono">01 / STRENGTH</span><h2>Make progress visible.</h2><p>You stay with difficult work long enough for movement to become real. People may look to you when a plan needs an owner, a decision needs courage, or energy has started to scatter.</p><p className="report-detail-note"><strong>At your best:</strong> You turn pressure into focus without confusing speed with importance.</p></div></article>
+        <article className="report-detail-card"><Target size={21} aria-hidden="true" /><div><span className="section-kicker mono">02 / SHADOW EDGE</span><h2>Moving before everyone arrives.</h2><p>Your decisiveness can outrun the emotional pace of a room. When that happens, a good solution may still feel imposed to people who needed one more question or one more minute.</p><p className="report-detail-note"><strong>Growth question:</strong> What deserves to be heard before the next move becomes final?</p></div></article>
+        <article className="report-detail-card"><HeartHandshake size={21} aria-hidden="true" /><div><span className="section-kicker mono">03 / RELATIONSHIP STYLE</span><h2>Steady, honest, and low-drama.</h2><p>You want consistency more than performance. You often express care by showing up, solving what can be solved, and keeping the promises you make.</p><p className="report-detail-note"><strong>Practice:</strong> Ask whether the other person wants comfort, perspective, or a plan before offering the next step.</p></div></article>
+        <article className="report-detail-card"><BriefcaseBusiness size={21} aria-hidden="true" /><div><span className="section-kicker mono">04 / CAREER SIGNALS</span><h2>Follow-through is your unfair advantage.</h2><p>You may thrive in product work, operations, entrepreneurship, strategy, or any role where judgment has to become something concrete and useful.</p><p className="report-detail-note"><strong>Best-fit environment:</strong> Clear ownership, visible outcomes, and enough autonomy to move without constant consensus.</p></div></article>
+        <article className="report-detail-card"><Compass size={21} aria-hidden="true" /><div><span className="section-kicker mono">05 / DECISION STYLE</span><h2>Find the useful move.</h2><p>You reduce uncertainty by testing reality. Small, reversible action often gives you better information than prolonged speculation.</p><p className="report-detail-note"><strong>Watch for:</strong> Treating every pause as resistance instead of a chance to improve the decision.</p></div></article>
+        <article className="report-detail-card"><MessageCircleQuestion size={21} aria-hidden="true" /><div><span className="section-kicker mono">06 / REFLECTION PROMPT</span><h2>What is urgency protecting?</h2><p>Think of one decision you want to finish quickly. Is the urgency coming from genuine timing, excitement, discomfort, or someone else's expectations?</p><p className="report-detail-note"><strong>Write for five minutes:</strong> If I slowed down without stopping, I would notice...</p></div></article>
       </section>
 
       <section className="alignment-card">
-        <div className="alignment-heading"><div><span className="section-kicker mono">05 / 7-DAY ALIGNMENT PLAN</span><h2>Turn the read into a small experiment.</h2></div><span className="alignment-count mono">7 DAYS</span></div>
+        <div className="alignment-heading"><div><span className="section-kicker mono">07 / 7-DAY ALIGNMENT PLAN</span><h2>Turn the read into a small experiment.</h2></div><span className="alignment-count mono">7 DAYS</span></div>
         <ol>{alignmentPlan.map((action, index) => <li key={action}><span>{String(index + 1).padStart(2, "0")}</span>{action}</li>)}</ol>
       </section>
 

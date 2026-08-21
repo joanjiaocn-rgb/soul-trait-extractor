@@ -48,8 +48,8 @@ export default function Home() {
           </article>
           <article className="band-item">
             <FileText size={22} aria-hidden="true" />
-            <h2>Share-worthy output</h2>
-            <p>Free previews are short enough to share, while the paid read holds the practical value.</p>
+            <h2>Useful before checkout</h2>
+            <p>Your free result includes a real reflection and action plan. Deeper paid reads can add context, comparisons, and export.</p>
           </article>
         </div>
       </section>

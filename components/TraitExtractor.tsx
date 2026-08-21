@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, Brain, Check, ChevronRight, Eye, Lock, Radar, Target, Unlock } from "lucide-react";
+import { ArrowDown, ArrowLeft, ArrowRight, ArrowUp, BookOpen, Brain, BriefcaseBusiness, CalendarCheck, Check, Eye, HeartHandshake, Radar, Target } from "lucide-react";
 
 type Dimension = "depth" | "clarity" | "connection" | "momentum";
 type Scores = Record<Dimension, number>;
@@ -9,13 +9,18 @@ type Option = { label: string; score: Scores };
 type Question = { prompt: string; options: Option[] };
 type Profile = {
   name: string;
+  colorName: string;
   color: string;
   signal: string;
+  overview: string;
   traits: string[];
   strength: string;
   blindSpot: string;
+  growthPrompt: string;
   relationship: string;
+  relationshipPractice: string;
   career: string;
+  careerEnvironment: string;
   actions: string[];
   scores: Scores;
 };
@@ -88,24 +93,28 @@ const questions: Question[] = [
 
 const profiles: Record<string, Omit<Profile, "scores">> = {
   depth: {
-    name: "Curiosity", color: "#d6a63a", signal: "Your soul color leans gold: observant, exploratory, and drawn to the pattern underneath the pattern.",
-    traits: ["Observant", "Exploratory", "Adaptive", "Insight-driven"], strength: "You notice what most people miss and turn fragments into a useful picture.", blindSpot: "You may keep exploring after the answer is already visible.",
-    relationship: "You want honesty, intellectual sparring, and room to think out loud.", career: "You may fit research, discovery, design, writing, strategy, or synthesis-heavy work.", actions: ["Write the question beneath the question.", "Test one direction for a week.", "Replace one guess with data.", "Share one incomplete idea.", "Close one open loop."],
+    name: "Curiosity", colorName: "Gold", color: "#d6a63a", signal: "Your soul color leans gold: observant, exploratory, and drawn to the pattern underneath the pattern.",
+    overview: "You tend to understand life by looking beneath the first answer. New information energizes you, especially when it changes the shape of a question you thought you already understood.",
+    traits: ["Observant", "Exploratory", "Adaptive", "Insight-driven"], strength: "You notice what most people miss and turn fragments into a useful picture.", blindSpot: "You may keep exploring after the answer is already visible.", growthPrompt: "What would become possible if you treated today's best answer as enough to begin?",
+    relationship: "You want honesty, intellectual sparring, and room to think out loud.", relationshipPractice: "Tell people whether you need listening, perspective, or a decision. It keeps curiosity from feeling like distance.", career: "You may fit research, discovery, design, writing, strategy, or synthesis-heavy work.", careerEnvironment: "Look for work with open questions, protected thinking time, and a clear moment when insight must become action.", actions: ["Write the question beneath the question.", "Test one direction for a week.", "Replace one guess with data.", "Share one incomplete idea.", "Close one open loop."],
   },
   clarity: {
-    name: "Integrity", color: "#4f79d1", signal: "Your soul color leans blue: clear, structured, and built around fair decisions.",
-    traits: ["Grounded", "Structured", "Reliable", "Fair-minded"], strength: "You can turn ambiguity into a working plan without losing sight of constraints.", blindSpot: "You may try to solve feelings before fully hearing them.",
-    relationship: "You show care through consistency and practical support. Naming feelings before fixing helps.", career: "You may fit operations, product management, analytics, engineering, planning, or process design.", actions: ["Simplify one recurring system.", "Separate facts from assumptions.", "Create one decision rule.", "Ask before solving.", "Review what became easier."],
+    name: "Integrity", colorName: "Blue", color: "#4f79d1", signal: "Your soul color leans blue: clear, structured, and built around fair decisions.",
+    overview: "You feel most grounded when words, choices, and values line up. People often trust your judgment because you make expectations visible and try to apply the same standard to yourself.",
+    traits: ["Grounded", "Structured", "Reliable", "Fair-minded"], strength: "You can turn ambiguity into a working plan without losing sight of constraints.", blindSpot: "You may try to solve feelings before fully hearing them.", growthPrompt: "Where would understanding matter more than reaching the cleanest answer?",
+    relationship: "You show care through consistency and practical support. Naming feelings before fixing helps.", relationshipPractice: "Before offering a solution, reflect back the feeling you heard and ask whether advice is wanted.", career: "You may fit operations, product management, analytics, engineering, planning, or process design.", careerEnvironment: "You are likely to do well where ownership is explicit, quality matters, and better systems are welcomed rather than resisted.", actions: ["Simplify one recurring system.", "Separate facts from assumptions.", "Create one decision rule.", "Ask before solving.", "Review what became easier."],
   },
   connection: {
-    name: "Kindness", color: "#4b8f86", signal: "Your soul color leans green: warm, attentive, and tuned to the emotional weather around you.",
-    traits: ["Empathic", "Warm", "Steady", "Meaning-seeking"], strength: "You help people feel seen, which makes hard conversations easier to enter.", blindSpot: "You may absorb emotional weight that was never yours to carry.",
-    relationship: "You thrive with reciprocity and do best with people who answer openness with steadiness.", career: "You may fit community, teaching, facilitation, customer strategy, or care-centered leadership.", actions: ["Choose one cleaner boundary.", "Write the feeling without solving it.", "Ask for concrete support.", "Give energy to a reciprocal relationship.", "Review what felt nourishing."],
+    name: "Kindness", colorName: "Green", color: "#4b8f86", signal: "Your soul color leans green: warm, attentive, and tuned to the emotional weather around you.",
+    overview: "You read a room through tone, trust, and what people may be carrying silently. Your instinct is to create enough safety for honesty, belonging, and repair to become possible.",
+    traits: ["Empathic", "Warm", "Steady", "Meaning-seeking"], strength: "You help people feel seen, which makes hard conversations easier to enter.", blindSpot: "You may absorb emotional weight that was never yours to carry.", growthPrompt: "What care can you offer without taking responsibility for another person's whole experience?",
+    relationship: "You thrive with reciprocity and do best with people who answer openness with steadiness.", relationshipPractice: "Name one need directly instead of hoping it will be noticed. Reciprocity becomes easier when your care has a clear boundary.", career: "You may fit community, teaching, facilitation, customer strategy, or care-centered leadership.", careerEnvironment: "Choose teams that value emotional intelligence and also protect you from becoming the unofficial container for every problem.", actions: ["Choose one cleaner boundary.", "Write the feeling without solving it.", "Ask for concrete support.", "Give energy to a reciprocal relationship.", "Review what felt nourishing."],
   },
   momentum: {
-    name: "Determination", color: "#c64b45", signal: "Your soul color leans red: steady, focused, and harder to shake than people expect.",
-    traits: ["Focused", "Persistent", "Self-directed", "Practical"], strength: "You stay with hard problems long enough to make progress visible.", blindSpot: "You may move into action before everyone has caught up emotionally.",
-    relationship: "You value sincerity and follow-through. You open faster when the other person is direct and calm.", career: "You may fit building, strategy, operations, product work, or any role where follow-through matters.", actions: ["Choose one meaningful next move.", "State a deadline you can keep.", "Finish one delayed task.", "Turn one intention into a calendar block.", "Review what moved forward."],
+    name: "Determination", colorName: "Red", color: "#c64b45", signal: "Your soul color leans red: steady, focused, and harder to shake than people expect.",
+    overview: "You understand yourself through movement. A meaningful goal sharpens your attention, and you are often the person who turns a difficult conversation or vague intention into a concrete next step.",
+    traits: ["Focused", "Persistent", "Self-directed", "Practical"], strength: "You stay with hard problems long enough to make progress visible.", blindSpot: "You may move into action before everyone has caught up emotionally.", growthPrompt: "Which conversation deserves one more minute of listening before you decide what happens next?",
+    relationship: "You value sincerity and follow-through. You open faster when the other person is direct and calm.", relationshipPractice: "Slow down at the point of tension and ask what the other person needs you to understand before you act.", career: "You may fit building, strategy, operations, product work, or any role where follow-through matters.", careerEnvironment: "Look for clear ownership, visible outcomes, and enough autonomy to move. Constant consensus-seeking will drain your best energy.", actions: ["Choose one meaningful next move.", "State a deadline you can keep.", "Finish one delayed task.", "Turn one intention into a calendar block.", "Review what moved forward."],
   },
 };
 
@@ -135,6 +144,7 @@ export function TraitExtractor() {
   const [isReading, setIsReading] = useState(false);
   const quizRef = useRef<HTMLElement | null>(null);
   const resultRef = useRef<HTMLElement | null>(null);
+  const reportRef = useRef<HTMLElement | null>(null);
   const question = questions[activeQuestion];
   const answeredCount = answers.filter((answer) => answer !== null).length;
   const selectedAnswer = answers[activeQuestion];
@@ -155,6 +165,15 @@ export function TraitExtractor() {
     }, 480);
   }
   function restartQuiz() { setAnswers(Array(questions.length).fill(null)); setActiveQuestion(0); setProfile(null); setUnlocked(false); startQuiz(); }
+  function toggleReportPreview() {
+    if (unlocked) {
+      setUnlocked(false);
+      resultRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+    setUnlocked(true);
+    window.setTimeout(() => reportRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 80);
+  }
 
   return (
     <section id="extractor" className="hero-shell" aria-labelledby="extractor-heading">
@@ -179,22 +198,22 @@ export function TraitExtractor() {
           <div className="quiz-options" role="radiogroup" aria-label={question.prompt}>
             {question.options.map((option, index) => <button key={option.label} type="button" className={selectedAnswer === index ? "quiz-option selected" : "quiz-option"} role="radio" aria-checked={selectedAnswer === index} onClick={() => selectAnswer(index)}><span className="option-marker" aria-hidden="true">{String.fromCharCode(65 + index)}</span><span>{option.label}</span></button>)}
           </div>
-          <div className="quiz-footer"><button className="button secondary" onClick={() => setActiveQuestion((index) => Math.max(0, index - 1))} disabled={activeQuestion === 0}><ArrowLeft size={16} aria-hidden="true" />Back</button><button className="button primary" onClick={nextQuestion} disabled={selectedAnswer === null || isReading}>{isLastQuestion ? "See my result" : "Next question"}<ArrowRight size={16} aria-hidden="true" /></button></div>
+          <div className="quiz-footer"><button className="button secondary" onClick={() => setActiveQuestion((index) => Math.max(0, index - 1))} disabled={activeQuestion === 0}><ArrowLeft size={16} aria-hidden="true" />Back</button><button className="button primary" onClick={profile ? () => resultRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }) : nextQuestion} disabled={selectedAnswer === null || isReading}>{profile ? "Review result" : isLastQuestion ? "See my result" : "Next question"}{profile ? <Eye size={16} aria-hidden="true" /> : <ArrowRight size={16} aria-hidden="true" />}</button></div>
         </article>
         <article ref={resultRef} className={isReading ? "console-panel result-panel is-reading" : "console-panel result-panel"} aria-live="polite" aria-busy={isReading}>
           {!profile ? <div className="result-empty"><Eye size={22} aria-hidden="true" /><span className="section-kicker mono">YOUR RESULT</span><h2>{isReading ? "Reading your answers..." : "Your virtue reflection will appear here."}</h2><p>Complete all seven questions to reveal your leading virtue, core strength, and a practical next move.</p></div> : <>
-            <div className="panel-heading"><div><span className="section-kicker mono">YOUR LEADING VIRTUE</span><h2>{profile.name}</h2></div><span className="profile-badge mono" style={{ borderColor: profile.color }}><Eye size={15} aria-hidden="true" />Complete</span></div>
+            <div className="panel-heading"><div><span className="section-kicker mono">YOUR LEADING VIRTUE</span><h2>{profile.name}</h2></div><span className="result-color-chip compact" style={{ borderColor: profile.color }}><i style={{ background: profile.color }} />{profile.colorName}</span></div>
             <p className="profile-signal">{profile.signal}</p>
-            <div className="readout-strip mono"><span>7 answers mapped</span><span>strength named</span><span>next move ready</span></div>
+            <div className="readout-strip mono"><span>7 answers mapped</span><span>4 signals scored</span><span>5 sections ready</span></div>
             <div className="trait-pills">{profile.traits.map((trait) => <span key={trait}>{trait}</span>)}</div>
             <div className="score-grid">{(Object.entries(profile.scores) as [Dimension, number][]).map(([key, score]) => <div key={key} className="score-item"><div className="score-label mono"><span>{key}</span><strong>{score}</strong></div><div className="meter"><span style={{ width: `${score}%`, background: meterColor(key) }} /></div></div>)}</div>
             <div className="preview-list"><article><Brain size={18} aria-hidden="true" /><div><h3>Strength</h3><p>{profile.strength}</p></div></article><article><Target size={18} aria-hidden="true" /><div><h3>Shadow edge</h3><p>{profile.blindSpot}</p></div></article></div>
-            <div className={unlocked ? "unlock-panel open" : "unlock-panel"}><div className="unlock-copy">{unlocked ? <Unlock size={18} aria-hidden="true" /> : <Lock size={18} aria-hidden="true" />}<div><h3>{unlocked ? "Full reflection open" : "Open the full reflection"}</h3><p>{unlocked ? "Relationship and career reflections are now shown below." : "Relationship patterns, career signals, and a 5-day alignment plan."}</p></div></div><button className="button dark" onClick={() => setUnlocked((value) => !value)}>{unlocked ? "Hide reflection" : "Preview full report"}<ChevronRight size={16} aria-hidden="true" /></button></div>
+            <div className={unlocked ? "report-entry open" : "report-entry"}><div className="report-entry-copy"><BookOpen size={19} aria-hidden="true" /><div><h3>{unlocked ? "Report preview is open" : "Continue into your report"}</h3><p>5 sections · about 3 minutes · personalized to your answers</p></div></div><button className="button dark" onClick={toggleReportPreview} aria-expanded={unlocked} aria-controls="personal-report">{unlocked ? "Close preview" : "Read report preview"}{unlocked ? <ArrowUp size={16} aria-hidden="true" /> : <ArrowDown size={16} aria-hidden="true" />}</button></div>
             <button className="restart-link" onClick={restartQuiz}>Retake the test</button>
           </>}
         </article>
       </div>
-      {unlocked && profile && <div className="full-report"><div className="report-header"><div><span className="section-kicker mono">EXTENDED REFLECTION</span><h2>{profile.name}</h2><p>{profile.signal}</p></div></div><div className="report-grid"><article><Check size={20} aria-hidden="true" /><div><h3>Relationship style</h3><p>{profile.relationship}</p></div></article><article><Target size={20} aria-hidden="true" /><div><h3>Career signals</h3><p>{profile.career}</p></div></article><article><Brain size={20} aria-hidden="true" /><div><h3>5-day alignment plan</h3><ol>{profile.actions.map((action) => <li key={action}>{action}</li>)}</ol></div></article></div></div>}
+      {unlocked && profile && <section ref={reportRef} id="personal-report" className="result-report" aria-labelledby="personal-report-heading"><div className="result-report-intro"><div><span className="section-kicker mono">YOUR REPORT PREVIEW / 5 SECTIONS</span><h2 id="personal-report-heading">The {profile.colorName} {profile.name} profile</h2><p>{profile.overview}</p></div><div className="report-color-mark" style={{ background: profile.color }} aria-label={`${profile.colorName} soul color`}><span>{profile.colorName}</span></div></div><div className="result-report-sections"><article><Brain size={21} aria-hidden="true" /><div><span className="section-kicker mono">01 / CORE STRENGTH</span><h3>{profile.strength}</h3><p>Your strongest signal is not only a trait; it is the way you create value when a situation becomes uncertain or demanding.</p></div></article><article><Target size={21} aria-hidden="true" /><div><span className="section-kicker mono">02 / GROWTH EDGE</span><h3>{profile.blindSpot}</h3><p className="report-question">Reflect on this: {profile.growthPrompt}</p></div></article><article><HeartHandshake size={21} aria-hidden="true" /><div><span className="section-kicker mono">03 / RELATIONSHIPS</span><h3>How you build trust</h3><p>{profile.relationship}</p><p><strong>Try this:</strong> {profile.relationshipPractice}</p></div></article><article><BriefcaseBusiness size={21} aria-hidden="true" /><div><span className="section-kicker mono">04 / WORK &amp; PURPOSE</span><h3>Where this virtue does its best work</h3><p>{profile.career}</p><p><strong>Best-fit environment:</strong> {profile.careerEnvironment}</p></div></article></div><div className="result-action-plan"><div className="result-action-heading"><div><span className="section-kicker mono">05 / 5-DAY ALIGNMENT PLAN</span><h3>Turn insight into one small experiment.</h3></div><CalendarCheck size={24} aria-hidden="true" /></div><ol>{profile.actions.map((action, index) => <li key={action}><span>{String(index + 1).padStart(2, "0")}</span><div><strong>Day {index + 1}</strong><p>{action}</p></div><Check size={17} aria-hidden="true" /></li>)}</ol></div><div className="result-report-footer"><p>This preview is a reflection tool, not a diagnosis. Notice what feels useful and leave the rest.</p><button className="restart-link" onClick={restartQuiz}>Retake with fresh answers</button></div></section>}
     </section>
   );
 }

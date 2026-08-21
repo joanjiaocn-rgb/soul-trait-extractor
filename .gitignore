@@ -20,6 +20,7 @@ pnpm-debug.log*
 # Local verification screenshots
 desktop-home*.png
 mobile-home*.png
+.qa/
 
 # Tooling caches
 .eslintcache
