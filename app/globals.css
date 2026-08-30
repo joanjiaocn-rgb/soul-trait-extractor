@@ -210,9 +210,13 @@ button {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(90deg, rgba(3, 4, 3, 0.94) 0%, rgba(3, 4, 3, 0.72) 30%, rgba(3, 4, 3, 0.12) 62%, rgba(3, 4, 3, 0.08) 100%),
-    url("/images/soul-color-hero.jpg") center center / cover no-repeat;
+  background-color: #18211e;
+  background-image:
+    linear-gradient(90deg, rgba(3, 4, 3, 0.96) 0%, rgba(3, 4, 3, 0.78) 32%, rgba(3, 4, 3, 0.18) 68%, rgba(3, 4, 3, 0.06) 100%),
+    url("/images/soul-color-hero-v2.jpg");
+  background-position: 0 0, right center;
+  background-size: 100% 100%, auto 135%;
+  background-repeat: no-repeat;
 }
 
 .assessment-hero .hero-copy {
@@ -2150,9 +2154,11 @@ summary:focus-visible {
   }
 
   .assessment-hero::before {
-    background:
-      linear-gradient(90deg, rgba(3, 4, 3, 0.94) 0%, rgba(3, 4, 3, 0.56) 68%, rgba(3, 4, 3, 0.12) 100%),
-      url("/images/soul-color-hero.jpg") 24% center / cover no-repeat;
+    background-image:
+      linear-gradient(90deg, rgba(3, 4, 3, 0.96) 0%, rgba(3, 4, 3, 0.78) 58%, rgba(3, 4, 3, 0.2) 100%),
+      url("/images/soul-color-hero-v2.jpg");
+    background-position: 0 0, right center;
+    background-size: 100% 100%, auto 100%;
   }
 
   .hero-visual-status {
