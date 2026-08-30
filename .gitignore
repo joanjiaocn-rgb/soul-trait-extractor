@@ -21,6 +21,7 @@ pnpm-debug.log*
 desktop-home*.png
 mobile-home*.png
 .qa/
+.qa-*.png
 
 # Tooling caches
 .eslintcache
