@@ -212,7 +212,7 @@ button {
   inset: 0;
   background:
     linear-gradient(90deg, rgba(3, 4, 3, 0.94) 0%, rgba(3, 4, 3, 0.72) 30%, rgba(3, 4, 3, 0.12) 62%, rgba(3, 4, 3, 0.08) 100%),
-    url("/images/soul-virtues-hero.jpg") center 38% / cover no-repeat;
+    url("/images/soul-color-hero.jpg") center center / cover no-repeat;
 }
 
 .assessment-hero .hero-copy {
@@ -2152,7 +2152,7 @@ summary:focus-visible {
   .assessment-hero::before {
     background:
       linear-gradient(90deg, rgba(3, 4, 3, 0.94) 0%, rgba(3, 4, 3, 0.56) 68%, rgba(3, 4, 3, 0.12) 100%),
-      url("/images/soul-virtues-hero.jpg") 60% center / cover no-repeat;
+      url("/images/soul-color-hero.jpg") 24% center / cover no-repeat;
   }
 
   .hero-visual-status {
