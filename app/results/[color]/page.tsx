@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { ArrowRight, BriefcaseBusiness, HeartHandshake, Lightbulb, Target } from "lucide-react";
 import { ResultShare } from "@/components/ResultShare";
 import { isSoulColorSlug, soulColorList, soulColors } from "@/lib/soul-colors";
-import { site, socialImage } from "@/lib/site";
+import { site, siteDates, siteIds, socialImage } from "@/lib/site";
 
 type ResultPageProps = { params: Promise<{ color: string }> };
 
@@ -58,7 +58,10 @@ export default async function SoulColorResultPage({ params }: ResultPageProps) {
         headline: `${profile.colorName} Soul Color Meaning`,
         description: profile.meaning,
         mainEntityOfPage: `${site.url}/results/${profile.slug}`,
-        publisher: { "@id": `${site.url}/#organization` },
+        publisher: { "@id": siteIds.organization },
+        author: { "@id": siteIds.organization },
+        datePublished: siteDates.published,
+        dateModified: siteDates.modified,
         inLanguage: "en-US",
       },
       {
@@ -86,6 +89,7 @@ export default async function SoulColorResultPage({ params }: ResultPageProps) {
           <span className="section-kicker mono">SOUL COLOR MEANING</span>
           <h1>{profile.colorName} Soul Color</h1>
           <p className="color-result-lead">{profile.meaning}</p>
+          <p className="article-meta">By Soul Color Test | Published {siteDates.display} | Updated {siteDates.display}</p>
           <div className="trait-pills">{profile.traits.map((trait) => <span key={trait}>{trait}</span>)}</div>
           <div className="color-result-actions"><Link className="button primary" href="/#extractor">Take the Soul Color Test <ArrowRight size={16} aria-hidden="true" /></Link><ResultShare profile={profile} /></div>
         </div>

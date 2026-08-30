@@ -1,10 +1,24 @@
 import type { Metadata } from "next";
-import { site } from "@/lib/site";
+import { site, siteDates, siteIds } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "Learn how Soul Color Test handles quiz answers, local progress, analytics data, and browser controls.",
   alternates: { canonical: `${site.url}/privacy` },
+};
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${site.url}/privacy#webpage`,
+  url: `${site.url}/privacy`,
+  name: "Privacy Policy",
+  description: metadata.description,
+  isPartOf: { "@id": siteIds.website },
+  about: { "@id": siteIds.organization },
+  datePublished: siteDates.published,
+  dateModified: siteDates.modified,
+  inLanguage: "en-US",
 };
 
 export default function PrivacyPage() {
@@ -13,7 +27,7 @@ export default function PrivacyPage() {
       <section className="page-copy legal-heading">
         <span className="section-kicker">Privacy</span>
         <h1>Your answers stay on your device.</h1>
-        <p>Last updated August 30, 2026. This policy describes the current public version of Soul Color Test.</p>
+        <p className="article-meta">Soul Color Test | Updated {siteDates.display}</p>
       </section>
       <section className="copy-card legal-copy">
         <h2>Quiz answers and progress</h2>
@@ -34,6 +48,7 @@ export default function PrivacyPage() {
         <h2>Limits and changes</h2>
         <p>This site is not intended to collect sensitive personal information or to provide medical or mental health assessment. We may update this policy when the service changes and will revise the date above.</p>
       </section>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     </main>
   );
 }

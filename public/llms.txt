@@ -3,3 +3,18 @@
 Soul Color Test is a free web quiz for symbolic self-reflection. Quick mode uses 7 questions and Deep mode uses 16. Results include a primary color, supporting shade, strengths, growth edges, relationship style, work signals, and an action plan.
 
 It is not a medical, mental health, hiring, or diagnostic tool.
+
+## Key pages
+- Home and test: https://soulcolortest.online/
+- What is a soul color?: https://soulcolortest.online/what-is-a-soul-color
+- Sample report: https://soulcolortest.online/sample-report
+- About the method: https://soulcolortest.online/about
+- Contact and public feedback: https://soulcolortest.online/contact
+- Gold meaning: https://soulcolortest.online/results/gold
+- Blue meaning: https://soulcolortest.online/results/blue
+- Green meaning: https://soulcolortest.online/results/green
+- Red meaning: https://soulcolortest.online/results/red
+- Privacy policy: https://soulcolortest.online/privacy
+- Terms of use: https://soulcolortest.online/terms
+
+The public source code is available at https://github.com/joanjiaocn-rgb/soul-trait-extractor.

@@ -1418,6 +1418,26 @@ summary:focus-visible {
   line-height: 1.7;
 }
 
+.article-meta,
+.guide-hero p.article-meta,
+.report-intro p.article-meta,
+.color-result-copy p.article-meta {
+  margin: 0 !important;
+  color: var(--muted);
+  font-family: var(--font-mono), "IBM Plex Mono", monospace;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.article-meta a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: rgba(159, 232, 112, 0.45);
+  text-underline-offset: 4px;
+}
+
 .guide-hero-cta {
   width: fit-content;
   margin-top: 10px;
@@ -1628,6 +1648,95 @@ summary:focus-visible {
 
 .guide-cta .button {
   flex: 0 0 auto;
+}
+
+.guide-sources {
+  display: grid;
+  grid-template-columns: 0.78fr 1.22fr;
+  gap: 48px;
+  padding: 52px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.source-list {
+  display: grid;
+  gap: 24px;
+}
+
+.source-list article {
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.source-list h3 {
+  margin: 0 0 8px;
+  font-size: 1.12rem;
+}
+
+.source-list p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.source-list a {
+  display: inline-flex;
+  margin-top: 12px;
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(159, 232, 112, 0.45);
+  text-underline-offset: 4px;
+}
+
+.guide-contact-option {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 14px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+}
+
+.guide-contact-option > svg {
+  color: var(--accent);
+}
+
+.guide-contact-option h3 {
+  margin: 0 0 8px;
+  font-size: 1.12rem;
+}
+
+.guide-contact-option p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.guide-contact-option a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 12px;
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(159, 232, 112, 0.45);
+  text-underline-offset: 4px;
+}
+
+.result-feature-list {
+  margin: 18px 0 0;
+  padding-left: 19px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.result-feature-list li + li {
+  margin-top: 7px;
+}
+
+.result-feature-list strong {
+  color: var(--ink);
 }
 
 .text-link {

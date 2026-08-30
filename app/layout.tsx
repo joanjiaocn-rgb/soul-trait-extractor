@@ -66,6 +66,14 @@ const schema = {
       "@id": siteIds.organization,
       name: site.name,
       url: site.url,
+      description: "The publisher of Soul Color Test, a free symbolic self-reflection quiz.",
+      sameAs: [site.ownerUrl],
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        url: `${site.url}/contact`,
+        availableLanguage: ["en"],
+      },
     },
     {
       "@type": "WebSite",
@@ -77,12 +85,28 @@ const schema = {
       inLanguage: "en-US",
     },
     {
+      "@type": "SoftwareSourceCode",
+      "@id": siteIds.repository,
+      name: "Soul Color Test source code",
+      codeRepository: site.repoUrl,
+      author: { "@id": siteIds.organization },
+      isPartOf: { "@id": siteIds.website },
+      programmingLanguage: ["TypeScript", "CSS"],
+    },
+    {
       "@type": "SoftwareApplication",
       "@id": siteIds.app,
       name: site.name,
       applicationCategory: "LifestyleApplication",
       operatingSystem: "Web",
       url: site.url,
+      creator: { "@id": siteIds.organization },
+      featureList: [
+        "7-question Quick Soul Color Test",
+        "16-question Deep Soul Color Test",
+        "Primary color and supporting shade",
+        "Five-day reflection plan",
+      ],
       offers: {
         "@type": "Offer",
         price: "0",

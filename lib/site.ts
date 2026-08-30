@@ -2,6 +2,8 @@ export const site = {
   name: "Soul Color Test",
   shortName: "Soul Color Test",
   url: "https://soulcolortest.online",
+  ownerUrl: "https://github.com/joanjiaocn-rgb",
+  repoUrl: "https://github.com/joanjiaocn-rgb/soul-trait-extractor",
   description: "Take a free soul color test and discover the color, leading virtue, strengths, relationships, and growth pattern reflected in your everyday choices.",
   keywords: [
     "what color is my soul",
@@ -17,6 +19,12 @@ export const site = {
     "relationship style reading",
     "career signal report",
   ],
+};
+
+export const siteDates = {
+  published: "2026-08-30",
+  modified: "2026-08-30",
+  display: "August 30, 2026",
 };
 
 export const socialImage = {
@@ -35,6 +43,8 @@ export const routes = [
 export const footerRoutes = [
   ...routes,
   { path: "/pricing", label: "Report plans" },
+  { path: "/about", label: "About" },
+  { path: "/contact", label: "Contact" },
   { path: "/privacy", label: "Privacy" },
   { path: "/terms", label: "Terms" },
 ];
@@ -43,6 +53,8 @@ export const sitemapRoutes = [
   "/",
   "/what-is-a-soul-color",
   "/sample-report",
+  "/about",
+  "/contact",
   "/privacy",
   "/terms",
 ];
@@ -51,4 +63,5 @@ export const siteIds = {
   organization: `${site.url}/#organization`,
   website: `${site.url}/#website`,
   app: `${site.url}/#app`,
+  repository: `${site.url}/#repository`,
 };

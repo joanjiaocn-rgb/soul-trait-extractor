@@ -1,10 +1,24 @@
 import type { Metadata } from "next";
-import { site } from "@/lib/site";
+import { site, siteDates, siteIds } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Terms of Use",
   description: "Read the terms for using the Soul Color Test, reports, result pages, and share features.",
   alternates: { canonical: `${site.url}/terms` },
+};
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${site.url}/terms#webpage`,
+  url: `${site.url}/terms`,
+  name: "Terms of Use",
+  description: metadata.description,
+  isPartOf: { "@id": siteIds.website },
+  about: { "@id": siteIds.organization },
+  datePublished: siteDates.published,
+  dateModified: siteDates.modified,
+  inLanguage: "en-US",
 };
 
 export default function TermsPage() {
@@ -13,7 +27,7 @@ export default function TermsPage() {
       <section className="page-copy legal-heading">
         <span className="section-kicker">Terms</span>
         <h1>Use the result as reflection, not certainty.</h1>
-        <p>Last updated August 30, 2026. By using Soul Color Test, you agree to the terms below.</p>
+        <p className="article-meta">Soul Color Test | Updated {siteDates.display}</p>
       </section>
       <section className="copy-card legal-copy">
         <h2>What the test provides</h2>
@@ -37,6 +51,7 @@ export default function TermsPage() {
         <h2>Changes</h2>
         <p>These terms may change as the service develops. Continued use after an update means the revised terms apply from the updated date shown above.</p>
       </section>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     </main>
   );
 }

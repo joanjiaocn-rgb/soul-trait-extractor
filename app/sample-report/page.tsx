@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Brain, BriefcaseBusiness, Compass, HeartHandshake, MessageCircleQuestion, Target } from "lucide-react";
-import { site, socialImage } from "@/lib/site";
+import { site, siteDates, siteIds, socialImage } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Soul Color Report Example: Red Determination Profile",
@@ -34,6 +34,20 @@ const alignmentPlan = [
   "Review what moved, what stayed stuck, and what you learned.",
 ];
 
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": `${site.url}/sample-report#article`,
+  headline: "Soul Color Report Example: Red Determination Profile",
+  description: "A complete example of a Soul Color Test reflection with color meaning, strengths, growth edge, relationship style, work signals, and a seven-day plan.",
+  mainEntityOfPage: `${site.url}/sample-report`,
+  author: { "@id": siteIds.organization },
+  publisher: { "@id": siteIds.organization },
+  datePublished: siteDates.published,
+  dateModified: siteDates.modified,
+  inLanguage: "en-US",
+};
+
 export default function SampleReportPage() {
   return (
     <main>
@@ -42,6 +56,7 @@ export default function SampleReportPage() {
           <span className="section-kicker">Example result</span>
           <h1>Your soul color is red.</h1>
           <p>This is the kind of reflection a completed Soul Color Test can produce.</p>
+          <p className="article-meta">By Soul Color Test | Published {siteDates.display} | Updated {siteDates.display}</p>
         </div>
         <div className="report-intro-mark" aria-hidden="true"><span>SC</span></div>
       </section>
@@ -84,6 +99,7 @@ export default function SampleReportPage() {
       </section>
 
       <section className="report-cta"><div><span className="section-kicker">Ready for yours?</span><h2>Find the pattern behind your color.</h2><p>Choose the 7-question Quick Test or the 16-question Deep Test. Your on-page reflection is free.</p></div><Link className="button primary" href="/#extractor">Take the test<ArrowRight size={16} aria-hidden="true" /></Link></section>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     </main>
   );
 }

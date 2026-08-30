@@ -81,7 +81,7 @@ export default function Home() {
       <section className="content-section color-preview-section" aria-labelledby="colors-heading">
         <div className="section-head color-preview-head">
           <span className="section-kicker"><Palette size={15} aria-hidden="true" /> The four results</span>
-          <h2 id="colors-heading">One leading color. One supporting shade.</h2>
+          <h2 id="colors-heading">What do the four soul colors mean?</h2>
           <p>Each color describes a different way of finding direction. None is better than another, and most people recognize parts of themselves in more than one.</p>
         </div>
         <div className="color-preview-grid">
@@ -100,8 +100,14 @@ export default function Home() {
       <section className="content-section report-invitation" aria-labelledby="report-heading">
         <div>
           <span className="section-kicker"><BookOpen size={15} aria-hidden="true" /> Beyond the color</span>
-          <h2 id="report-heading">A result should give you something to notice.</h2>
+          <h2 id="report-heading">What does your soul color result include?</h2>
           <p>The free reflection connects your color to a strength, a growth edge, relationships, work, and a five-day experiment. Read the complete red result before taking the test if you want to see the level of detail first.</p>
+          <ul className="result-feature-list">
+            <li><strong>1</strong> primary color and <strong>1</strong> supporting shade</li>
+            <li><strong>4</strong> signal scores: depth, clarity, connection, and momentum</li>
+            <li>Strengths, growth edge, relationship style, and work signals</li>
+            <li>A practical <strong>5-day</strong> reflection plan</li>
+          </ul>
         </div>
         <Link className="button secondary" href="/sample-report">Open the sample report <ArrowRight size={16} aria-hidden="true" /></Link>
       </section>
@@ -109,7 +115,7 @@ export default function Home() {
       <section className="content-section split-section" aria-labelledby="faq-heading">
         <div>
           <span className="section-kicker">Questions</span>
-          <h2 id="faq-heading">Before you begin</h2>
+          <h2 id="faq-heading">What should you know before you begin?</h2>
           <p>Choose the answer closest to your usual instinct. There are no correct colors and no result you need to perform toward.</p>
         </div>
         <div className="faq-list">
@@ -123,7 +129,7 @@ export default function Home() {
       </section>
 
       <section className="guide-cta home-final-cta">
-        <div><span className="section-kicker">Ready?</span><h2>Find the color behind your choices.</h2><p>Begin with seven questions or switch to the deeper sixteen-question version.</p></div>
+        <div><span className="section-kicker">Ready?</span><h2>Ready to find your soul color?</h2><p>Begin with seven questions or switch to the deeper sixteen-question version.</p></div>
         <a className="button primary" href="#extractor">Take the Soul Color Test <ArrowRight size={16} aria-hidden="true" /></a>
       </section>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(soulColorFaqSchema) }} />

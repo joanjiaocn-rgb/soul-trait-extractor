@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Brain, Check, HeartHandshake, Target } from "lucide-react";
-import { site, socialImage } from "@/lib/site";
+import { site, siteDates, siteIds, socialImage } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "What Is a Soul Color?",
@@ -46,6 +46,20 @@ const guideFaqSchema = {
   })),
 };
 
+const guideArticleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": `${site.url}/what-is-a-soul-color#article`,
+  headline: "What Is a Soul Color?",
+  description: "A grounded guide to soul colors, symbolic shades, and finding your own reflective color profile.",
+  mainEntityOfPage: `${site.url}/what-is-a-soul-color`,
+  author: { "@id": siteIds.organization },
+  publisher: { "@id": siteIds.organization },
+  datePublished: siteDates.published,
+  dateModified: siteDates.modified,
+  inLanguage: "en-US",
+};
+
 export default function SoulColorGuidePage() {
   return (
     <main>
@@ -53,6 +67,7 @@ export default function SoulColorGuidePage() {
         <span className="section-kicker">Soul color guide</span>
         <h1>What Is a Soul Color?</h1>
         <p>A soul color is a symbolic way to reflect on the qualities that shape how you think, connect, decide, and act.</p>
+        <p className="article-meta">By Soul Color Test | Published {siteDates.display} | Updated {siteDates.display}</p>
         <Link className="button primary guide-hero-cta" href="/#extractor">Find my soul color <ArrowRight size={16} aria-hidden="true" /></Link>
       </section>
 
@@ -101,6 +116,21 @@ export default function SoulColorGuidePage() {
         </div>
       </section>
 
+      <section className="guide-sources" aria-labelledby="sources-heading">
+        <div className="guide-section-heading"><span className="section-kicker mono">SOURCES</span><h2 id="sources-heading">What informed this guide?</h2><p>This page separates symbolic interpretation from established research about color and perception.</p></div>
+        <div className="source-list">
+          <article>
+            <h3>Color and psychology</h3>
+            <p>The American Psychological Association discusses how color can influence emotion, attention, and behavior while also noting that responses vary by context and culture.</p>
+            <a href="https://www.apa.org/monitor/2011/07-08/colors" target="_blank" rel="noreferrer">Read the APA overview <ArrowRight size={15} aria-hidden="true" /></a>
+          </article>
+          <article>
+            <h3>How to interpret this test</h3>
+            <p>Soul Color Test uses four colors as an original reflection vocabulary. The result is generated from your answers and is not presented as a validated psychological instrument.</p>
+          </article>
+        </div>
+      </section>
+
       <section className="guide-faq" aria-labelledby="guide-faq-heading">
         <div><span className="section-kicker">More questions</span><h2 id="guide-faq-heading">Keep the interpretation open.</h2></div>
         <div className="faq-list">
@@ -109,6 +139,7 @@ export default function SoulColorGuidePage() {
       </section>
 
       <section className="guide-cta"><div><span className="section-kicker">Ready to explore yours?</span><h2>Choose a quick or deep read.</h2><p>Take the Soul Color Test and see which color gives your current pattern the clearest language.</p></div><Link className="button primary" href="/#extractor">Take the test <ArrowRight size={16} aria-hidden="true" /></Link></section>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(guideArticleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(guideFaqSchema) }} />
     </main>
   );
