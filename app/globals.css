@@ -211,12 +211,22 @@ button {
   position: absolute;
   inset: 0;
   background-color: #18211e;
-  background-image:
-    linear-gradient(90deg, rgba(3, 4, 3, 0.96) 0%, rgba(3, 4, 3, 0.78) 32%, rgba(3, 4, 3, 0.18) 68%, rgba(3, 4, 3, 0.06) 100%),
-    url("/images/soul-color-hero-v2.jpg");
-  background-position: 0 0, right center;
-  background-size: 100% 100%, auto 135%;
-  background-repeat: no-repeat;
+  background-image: linear-gradient(90deg, #18211e 0%, rgba(22, 31, 27, 0.98) 34%, rgba(22, 31, 27, 0.72) 57%, rgba(22, 31, 27, 0.18) 78%, rgba(22, 31, 27, 0.05) 100%);
+}
+
+.assessment-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: url("/images/soul-color-hero-v2.jpg") right center / auto 155% no-repeat;
+  -webkit-mask: linear-gradient(90deg, transparent 34%, rgba(0, 0, 0, 0.06) 45%, #000 64%, #000 100%);
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask: linear-gradient(90deg, transparent 34%, rgba(0, 0, 0, 0.06) 45%, #000 64%, #000 100%);
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
 }
 
 .assessment-hero .hero-copy {
@@ -2153,12 +2163,23 @@ summary:focus-visible {
     font-size: 3.2rem;
   }
 
+  .assessment-hero .hero-copy {
+    background: linear-gradient(90deg, rgba(22, 31, 27, 0.97) 0%, rgba(22, 31, 27, 0.88) 56%, rgba(22, 31, 27, 0.12) 100%);
+  }
+
   .assessment-hero::before {
-    background-image:
-      linear-gradient(90deg, rgba(3, 4, 3, 0.96) 0%, rgba(3, 4, 3, 0.78) 58%, rgba(3, 4, 3, 0.2) 100%),
-      url("/images/soul-color-hero-v2.jpg");
-    background-position: 0 0, right center;
-    background-size: 100% 100%, auto 100%;
+    background-image: linear-gradient(90deg, #18211e 0%, rgba(22, 31, 27, 0.96) 52%, rgba(22, 31, 27, 0.18) 100%);
+  }
+
+  .assessment-hero::after {
+    background-position: 100% 56%;
+    background-size: auto 100%;
+    -webkit-mask: linear-gradient(90deg, transparent 12%, rgba(0, 0, 0, 0.08) 34%, rgba(0, 0, 0, 0.72) 63%, #000 100%);
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask: linear-gradient(90deg, transparent 12%, rgba(0, 0, 0, 0.08) 34%, rgba(0, 0, 0, 0.72) 63%, #000 100%);
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
   }
 
   .hero-visual-status {
