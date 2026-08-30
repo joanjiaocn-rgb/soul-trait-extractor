@@ -1,5 +1,5 @@
-# Soul Virtues Extractor
+# Soul Color Test
 
-Soul Virtues Extractor is a web tool for self-reflection. It turns short writing samples or prompt answers into a practical soul color report with strengths, shadow edges, relationship style, career signals, and a 7-day alignment plan.
+Soul Color Test is a free web quiz for symbolic self-reflection. Quick mode uses 7 questions and Deep mode uses 16. Results include a primary color, supporting shade, strengths, growth edges, relationship style, work signals, and an action plan.
 
 It is not a medical, mental health, hiring, or diagnostic tool.

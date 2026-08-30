@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Inter } from "next/font/google";
+import Link from "next/link";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import "./globals.css";
-import { routes, site, siteIds } from "@/lib/site";
+import { footerRoutes, routes, site, siteIds, socialImage } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -17,13 +18,13 @@ const plexMono = IBM_Plex_Mono({
   variable: "--font-mono",
 });
 
-const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? "zmpMdrkl7mwajZcH2os7sGnYCAX2mZnz_aAXb9iFQko";
 const googleAnalyticsId = "G-YK54PPG9WC";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Soul Virtues Extractor | Find Your Soul Color Profile",
+    default: "Soul Color Test | What Color Is Your Soul?",
     template: `%s | ${site.shortName}`,
   },
   description: site.description,
@@ -39,19 +40,21 @@ export const metadata: Metadata = {
   alternates: {
     canonical: site.url,
   },
-  verification: googleVerification ? { google: googleVerification } : undefined,
+  verification: { google: googleVerification },
   openGraph: {
-    title: "Soul Virtues Extractor | Find Your Soul Color Profile",
+    title: "Soul Color Test | What Color Is Your Soul?",
     description: site.description,
     url: site.url,
     type: "website",
     locale: "en_US",
     siteName: site.name,
+    images: [socialImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Soul Virtues Extractor | Find Your Soul Color Profile",
+    title: "Soul Color Test | What Color Is Your Soul?",
     description: site.description,
+    images: [socialImage],
   },
 };
 
@@ -81,9 +84,8 @@ const schema = {
       operatingSystem: "Web",
       url: site.url,
       offers: {
-        "@type": "AggregateOffer",
-        lowPrice: "0",
-        highPrice: "29",
+        "@type": "Offer",
+        price: "0",
         priceCurrency: "USD",
       },
     },
@@ -114,25 +116,25 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
         <div className="page-shell">
           <header className="site-header">
-            <a className="brand" href="/" aria-label={`${site.name} home`}>
-              <span className="brand-mark" aria-hidden="true">SV</span>
+            <Link className="brand" href="/" aria-label={`${site.name} home`}>
+              <span className="brand-mark" aria-hidden="true">SC</span>
               <span>{site.shortName}</span>
-            </a>
+            </Link>
             <nav className="nav-links" aria-label="Main navigation">
               {routes.slice(0, 3).map((route) => (
-                <a key={route.path} href={route.path}>
+                <Link key={route.path} href={route.path}>
                   {route.label}
-                </a>
+                </Link>
               ))}
             </nav>
             <div className="header-actions">
-              <a className="button secondary header-link" href="/sample-report">
+              <Link className="button secondary header-link" href="/sample-report">
                 Sample
-              </a>
-              <a className="button primary header-link" href="/#extractor">
+              </Link>
+              <Link className="button primary header-link" href="/#extractor">
                 Start
                 <ArrowRight size={16} aria-hidden="true" />
-              </a>
+              </Link>
             </div>
           </header>
           {children}
@@ -140,13 +142,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <div className="footer-inner">
               <div className="footer-brand">
                 <ShieldCheck size={18} aria-hidden="true" />
-                <span>Soul virtue reports, not medical or mental health diagnosis.</span>
+                <span>Symbolic soul color reflections, not medical or mental health diagnoses.</span>
               </div>
               <nav className="footer-links" aria-label="Footer navigation">
-                {routes.map((route) => (
-                  <a key={route.path} href={route.path}>
+                {footerRoutes.map((route) => (
+                  <Link key={route.path} href={route.path}>
                     {route.label}
-                  </a>
+                  </Link>
                 ))}
               </nav>
             </div>

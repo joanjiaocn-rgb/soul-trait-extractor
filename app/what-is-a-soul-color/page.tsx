@@ -1,17 +1,20 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ArrowRight, Brain, Check, HeartHandshake, Target } from "lucide-react";
-import { site } from "@/lib/site";
+import { site, socialImage } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "What Is a Soul Color?",
-  description: "Learn what soul color means, how soul shades are used for reflection, and how to find your own color with a short seven-question test.",
+  description: "Learn what soul color means, how symbolic shades are used for reflection, and how to find your own color with a free quick or deep test.",
   alternates: { canonical: `${site.url}/what-is-a-soul-color` },
   openGraph: {
-    title: "What Is a Soul Color? | Soul Virtues",
+    title: "What Is a Soul Color? | Soul Color Test",
     description: "A grounded guide to soul colors, symbolic shades, and finding your own reflective color profile.",
     url: `${site.url}/what-is-a-soul-color`,
     type: "article",
+    images: [socialImage],
   },
+  twitter: { card: "summary_large_image", title: "What Is a Soul Color? | Soul Color Test", description: "A grounded guide to soul colors, symbolic shades, and finding your own reflective color profile.", images: [socialImage] },
 };
 
 const colorProfiles = [
@@ -23,14 +26,14 @@ const colorProfiles = [
 
 const testSteps = [
   { number: "01", title: "Choose the answer that feels most like you.", detail: "There are no correct answers. The useful answer is the one that reflects your usual instinct, not the version of yourself you think you should be." },
-  { number: "02", title: "Let the pattern build across seven questions.", detail: "The test maps your choices across depth, clarity, connection, and momentum rather than treating one answer as your whole personality." },
+  { number: "02", title: "Let the pattern build across several situations.", detail: "The Quick Test uses seven questions and the Deep Test uses sixteen. Both map choices across depth, clarity, connection, and momentum." },
   { number: "03", title: "Read the result as a starting point.", detail: "Your color names a leading virtue, a growth edge, relationship and work signals, and a small alignment plan to try." },
 ];
 
 const guideFaq = [
   { question: "Can my soul color change?", answer: "It can. Your result reflects the pattern in your answers at a particular moment, and your priorities or circumstances may change over time." },
   { question: "Is a soul color scientific?", answer: "The color is symbolic, not a scientific measurement. Use it as a self-reflection prompt rather than proof of a personality trait." },
-  { question: "How long does the soul color test take?", answer: "This version uses seven questions and usually takes about two minutes. You can then read a longer personalized reflection at your own pace." },
+  { question: "How long does the soul color test take?", answer: "The seven-question Quick Test takes about two minutes. The sixteen-question Deep Test usually takes five to six minutes." },
 ];
 
 const guideFaqSchema = {
@@ -50,12 +53,12 @@ export default function SoulColorGuidePage() {
         <span className="section-kicker">Soul color guide</span>
         <h1>What Is a Soul Color?</h1>
         <p>A soul color is a symbolic way to reflect on the qualities that shape how you think, connect, decide, and act.</p>
-        <a className="button primary guide-hero-cta" href="/#extractor">Find my soul color <ArrowRight size={16} aria-hidden="true" /></a>
+        <Link className="button primary guide-hero-cta" href="/#extractor">Find my soul color <ArrowRight size={16} aria-hidden="true" /></Link>
       </section>
 
       <section className="guide-answer" aria-labelledby="quick-answer-heading">
         <div><span className="section-kicker mono">QUICK ANSWER</span><h2 id="quick-answer-heading">A soul color is a mirror, not a verdict.</h2></div>
-        <p>There is no universal color assigned to every soul. In reflective practices, color gives an abstract quality a memorable shape. At Soul Virtues, your color is generated from everyday choices and paired with a virtue, so the result gives you language to explore rather than a fixed identity to accept.</p>
+        <p>There is no universal color assigned to every soul. In reflective practices, color gives an abstract quality a memorable shape. In this test, your color is generated from everyday choices and paired with a virtue, so the result gives you language to explore rather than a fixed identity to accept.</p>
       </section>
 
       <nav className="guide-toc" aria-label="Guide sections">
@@ -105,7 +108,7 @@ export default function SoulColorGuidePage() {
         </div>
       </section>
 
-      <section className="guide-cta"><div><span className="section-kicker">Ready to explore yours?</span><h2>Seven choices. One useful starting point.</h2><p>Take the Soul Virtues Test and see which color gives your current pattern the clearest language.</p></div><a className="button primary" href="/#extractor">Take the test <ArrowRight size={16} aria-hidden="true" /></a></section>
+      <section className="guide-cta"><div><span className="section-kicker">Ready to explore yours?</span><h2>Choose a quick or deep read.</h2><p>Take the Soul Color Test and see which color gives your current pattern the clearest language.</p></div><Link className="button primary" href="/#extractor">Take the test <ArrowRight size={16} aria-hidden="true" /></Link></section>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(guideFaqSchema) }} />
     </main>
   );

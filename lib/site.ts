@@ -1,10 +1,11 @@
 export const site = {
-  name: "Soul Virtues Extractor",
-  shortName: "Soul Virtues",
+  name: "Soul Color Test",
+  shortName: "Soul Color Test",
   url: "https://soulcolortest.online",
-  description: "A reflective 7-question soul color test for exploring the virtues and patterns behind how you move through life.",
+  description: "Take a free soul color test and discover the color, leading virtue, strengths, relationships, and growth pattern reflected in your everyday choices.",
   keywords: [
-    "soul virtues extractor",
+    "what color is my soul",
+    "what color is your soul",
     "soul color finder",
     "soul color test",
     "what is a soul color",
@@ -18,13 +19,32 @@ export const site = {
   ],
 };
 
+export const socialImage = {
+  url: `${site.url}/opengraph-image`,
+  width: 1200,
+  height: 630,
+  alt: "Soul Color Test color spectrum and title",
+};
+
 export const routes = [
-  { path: "/", label: "Virtues mode" },
-  { path: "/what-is-a-soul-color", label: "Soul color guide" },
+  { path: "/", label: "Test" },
+  { path: "/what-is-a-soul-color", label: "Color guide" },
   { path: "/sample-report", label: "Sample report" },
-  { path: "/pricing", label: "Pricing" },
+];
+
+export const footerRoutes = [
+  ...routes,
+  { path: "/pricing", label: "Report plans" },
   { path: "/privacy", label: "Privacy" },
   { path: "/terms", label: "Terms" },
+];
+
+export const sitemapRoutes = [
+  "/",
+  "/what-is-a-soul-color",
+  "/sample-report",
+  "/privacy",
+  "/terms",
 ];
 
 export const siteIds = {

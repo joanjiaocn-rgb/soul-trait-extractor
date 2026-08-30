@@ -1,6 +1,6 @@
-# Soul Virtues Extractor
+# Soul Color Test
 
-A Next.js prototype for a dark, dossier-style soul virtues reading tool.
+A Next.js soul color quiz with quick and deep modes, color result pages, and reflective reports.
 
 ## Scripts
 
@@ -13,8 +13,8 @@ npm run start
 
 ## Notes
 
-- The current analyzer uses local scoring rules in the browser.
-- The paid unlock flow is a prototype placeholder.
+- The analyzer uses local scoring rules in the browser.
+- Quiz answers stay in the browser and are not sent to a report API.
 - Reports are framed as self-reflection, not diagnosis, therapy, or clinical evaluation.
 
 ## Cloudflare Pages
