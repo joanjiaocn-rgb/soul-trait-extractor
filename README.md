@@ -82,3 +82,5 @@ Install dependencies:
 
 ```bash
 npm install
+npm run lint
+npm run build
