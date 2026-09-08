@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     description: "A grounded guide to soul colors, symbolic shades, and finding your own reflective color profile.",
     url: `${site.url}/what-is-a-soul-color`,
     type: "article",
+    siteName: site.name,
     images: [socialImage],
   },
   twitter: { card: "summary_large_image", title: "What Is a Soul Color? | Soul Color Test", description: "A grounded guide to soul colors, symbolic shades, and finding your own reflective color profile.", images: [socialImage] },
@@ -67,8 +68,8 @@ export default function SoulColorGuidePage() {
         <span className="section-kicker">Soul color guide</span>
         <h1>What Is a Soul Color?</h1>
         <p>A soul color is a symbolic way to reflect on the qualities that shape how you think, connect, decide, and act.</p>
-        <p className="article-meta">By Soul Color Test | Published {siteDates.display} | Updated {siteDates.display}</p>
-        <Link className="button primary guide-hero-cta" href="/#extractor">Find my soul color <ArrowRight size={16} aria-hidden="true" /></Link>
+        <p className="article-meta">By Soul Color Test | Published <time dateTime={siteDates.published}>{siteDates.publishedDisplay}</time> | Updated <time dateTime={siteDates.modified}>{siteDates.modifiedDisplay}</time></p>
+        <Link className="button primary guide-hero-cta" href="/#extractor" title="Start the Soul Color Test">Find my soul color <ArrowRight size={16} aria-hidden="true" /></Link>
       </section>
 
       <section className="guide-answer" aria-labelledby="quick-answer-heading">
@@ -78,10 +79,10 @@ export default function SoulColorGuidePage() {
 
       <nav className="guide-toc" aria-label="Guide sections">
         <span className="section-kicker mono">IN THIS GUIDE</span>
-        <a href="#meaning">What it means</a>
-        <a href="#colors">Color and virtue</a>
-        <a href="#find-your-shade">How to find your shade</a>
-        <a href="#use-your-result">How to use your result</a>
+        <a href="#meaning" title="Read what a soul color means">What it means</a>
+        <a href="#colors" title="Read the color and virtue section">Color and virtue</a>
+        <a href="#find-your-shade" title="Read how to find your soul shade">How to find your shade</a>
+        <a href="#use-your-result" title="Read how to use your result">How to use your result</a>
       </nav>
 
       <section id="meaning" className="guide-section" aria-labelledby="meaning-heading">
@@ -122,7 +123,7 @@ export default function SoulColorGuidePage() {
           <article>
             <h3>Color and psychology</h3>
             <p>The American Psychological Association discusses how color can influence emotion, attention, and behavior while also noting that responses vary by context and culture.</p>
-            <a href="https://www.apa.org/monitor/2011/07-08/colors" target="_blank" rel="noreferrer">Read the APA overview <ArrowRight size={15} aria-hidden="true" /></a>
+            <a href="https://www.apa.org/monitor/2011/07-08/colors" target="_blank" rel="noreferrer" title="Read the American Psychological Association overview of color">Read the APA overview <ArrowRight size={15} aria-hidden="true" /></a>
           </article>
           <article>
             <h3>How to interpret this test</h3>
@@ -138,7 +139,7 @@ export default function SoulColorGuidePage() {
         </div>
       </section>
 
-      <section className="guide-cta"><div><span className="section-kicker">Ready to explore yours?</span><h2>Choose a quick or deep read.</h2><p>Take the Soul Color Test and see which color gives your current pattern the clearest language.</p></div><Link className="button primary" href="/#extractor">Take the test <ArrowRight size={16} aria-hidden="true" /></Link></section>
+      <section className="guide-cta"><div><span className="section-kicker">Ready to explore yours?</span><h2>Choose a quick or deep read.</h2><p>Take the Soul Color Test and see which color gives your current pattern the clearest language.</p></div><Link className="button primary" href="/#extractor" title="Start the Soul Color Test">Take the test <ArrowRight size={16} aria-hidden="true" /></Link></section>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(guideArticleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(guideFaqSchema) }} />
     </main>

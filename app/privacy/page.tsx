@@ -27,7 +27,7 @@ export default function PrivacyPage() {
       <section className="page-copy legal-heading">
         <span className="section-kicker">Privacy</span>
         <h1>Your answers stay on your device.</h1>
-        <p className="article-meta">Soul Color Test | Updated {siteDates.display}</p>
+        <p className="article-meta">Soul Color Test | Updated <time dateTime={siteDates.modified}>{siteDates.modifiedDisplay}</time></p>
       </section>
       <section className="copy-card legal-copy">
         <h2>Quiz answers and progress</h2>

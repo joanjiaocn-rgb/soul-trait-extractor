@@ -53,7 +53,7 @@ export default function PricingPage() {
               <h2>{plan.name}</h2>
             </div>
             <ul>{plan.items.map((item) => <li key={item}><Check size={16} aria-hidden="true" />{item}</li>)}</ul>
-            <Link className={plan.available ? "button primary" : "button secondary"} href={plan.href}>{plan.cta}<ArrowRight size={16} aria-hidden="true" /></Link>
+            <Link className={plan.available ? "button primary" : "button secondary"} href={plan.href} title={plan.cta}>{plan.cta}<ArrowRight size={16} aria-hidden="true" /></Link>
           </article>
         ))}
       </section>

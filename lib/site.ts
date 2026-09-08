@@ -8,6 +8,9 @@ export const site = {
   keywords: [
     "what color is my soul",
     "what color is your soul",
+    "soul color quiz",
+    "soul color test free",
+    "soul color meanings",
     "soul color finder",
     "soul color test",
     "what is a soul color",
@@ -23,8 +26,9 @@ export const site = {
 
 export const siteDates = {
   published: "2026-08-30",
-  modified: "2026-08-30",
-  display: "August 30, 2026",
+  modified: "2026-09-08",
+  publishedDisplay: "August 30, 2026",
+  modifiedDisplay: "September 8, 2026",
 };
 
 export const socialImage = {
@@ -42,6 +46,8 @@ export const routes = [
 
 export const footerRoutes = [
   ...routes,
+  { path: "/soul-color-quiz", label: "Soul color quiz" },
+  { path: "/soul-color-meanings", label: "Color meanings" },
   { path: "/pricing", label: "Report plans" },
   { path: "/about", label: "About" },
   { path: "/contact", label: "Contact" },
@@ -51,6 +57,8 @@ export const footerRoutes = [
 
 export const sitemapRoutes = [
   "/",
+  "/soul-color-quiz",
+  "/soul-color-meanings",
   "/what-is-a-soul-color",
   "/sample-report",
   "/about",

@@ -25,7 +25,7 @@ export function ResultShare({ profile }: { profile: SoulColorProfile }) {
 
   return (
     <div className="result-page-share">
-      <button className="button secondary" type="button" onClick={share}><Share2 size={16} aria-hidden="true" />Share this color</button>
+      <button className="button secondary" type="button" onClick={share} title={`Share the ${profile.colorName} soul color meaning`}><Share2 size={16} aria-hidden="true" />Share this color</button>
       <button className="icon-button" type="button" onClick={copyLink} aria-label="Copy color page link" title="Copy color page link"><LinkIcon size={17} aria-hidden="true" /></button>
       <span aria-live="polite">{status}</span>
     </div>

@@ -456,7 +456,7 @@ export function TraitExtractor() {
               <button className="button secondary" type="button" onClick={shareResult}><Share2 size={16} aria-hidden="true" />Share</button>
               <button className="icon-button" type="button" onClick={copyResultLink} title="Copy result link" aria-label="Copy result link"><LinkIcon size={17} aria-hidden="true" /></button>
               <button className="icon-button" type="button" onClick={downloadResultCard} title="Download result card" aria-label="Download result card"><Download size={17} aria-hidden="true" /></button>
-              <Link className="button secondary" href={`/results/${profile.slug}`}>Color meaning<ArrowRight size={16} aria-hidden="true" /></Link>
+              <Link className="button secondary" href={`/results/${profile.slug}`} title={`Read the ${profile.colorName} soul color meaning`}>Color meaning<ArrowRight size={16} aria-hidden="true" /></Link>
             </div>
             <p className="action-status" aria-live="polite">{actionStatus}</p>
             <div className={reportOpen ? "report-entry open" : "report-entry"}><div className="report-entry-copy"><BookOpen size={19} aria-hidden="true" /><div><h3>{reportOpen ? "Your report is open" : "Read your personal reflection"}</h3><p>5 sections / about 3 minutes / based on your answers</p></div></div><button className="button dark" onClick={toggleReportPreview} aria-expanded={reportOpen} aria-controls="personal-report">{reportOpen ? "Close report" : "Open free report"}{reportOpen ? <ArrowUp size={16} aria-hidden="true" /> : <ArrowDown size={16} aria-hidden="true" />}</button></div>

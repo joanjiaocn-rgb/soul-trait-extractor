@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     description: "Learn how Soul Color Test turns everyday choices into a symbolic color reflection.",
     url: `${site.url}/about`,
     type: "article",
+    siteName: site.name,
     images: [socialImage],
   },
 };
@@ -48,7 +49,7 @@ export default function AboutPage() {
         <span className="section-kicker">About</span>
         <h1>A small test for noticing your patterns.</h1>
         <p>Soul Color Test is a free web quiz for symbolic self-reflection. It uses everyday choices to give four recurring virtues a memorable color language.</p>
-        <p className="article-meta">By Soul Color Test | Published {siteDates.display} | Updated {siteDates.display}</p>
+        <p className="article-meta">By Soul Color Test | Published <time dateTime={siteDates.published}>{siteDates.publishedDisplay}</time> | Updated <time dateTime={siteDates.modified}>{siteDates.modifiedDisplay}</time></p>
       </section>
 
       <section className="guide-section" aria-labelledby="purpose-heading">
@@ -61,7 +62,7 @@ export default function AboutPage() {
         <div className="guide-copy"><p>Quick mode maps seven choices. Deep mode maps sixteen. Each choice adds local scoring weight to four dimensions: depth, clarity, connection, and momentum.</p><p>The highest dimension becomes the primary color and the next highest becomes the supporting shade. The calculation runs in your browser, and the quiz answers are saved locally so you can continue on the same device.</p></div>
       </section>
 
-      <section className="guide-cta"><div><span className="section-kicker">Explore the work</span><h2>Read the source or take the test.</h2><p>The public repository contains the site code and the scoring implementation.</p></div><div className="hero-actions"><a className="button secondary" href={site.repoUrl} target="_blank" rel="noreferrer"><Github size={16} aria-hidden="true" /> View source <ArrowRight size={16} aria-hidden="true" /></a><Link className="button primary" href="/#extractor">Take the test <ArrowRight size={16} aria-hidden="true" /></Link></div></section>
+      <section className="guide-cta"><div><span className="section-kicker">Explore the work</span><h2>Read the source or take the test.</h2><p>The public repository contains the site code and the scoring implementation.</p></div><div className="hero-actions"><a className="button secondary" href={site.repoUrl} target="_blank" rel="noreferrer" title="View the Soul Color Test source code on GitHub"><Github size={16} aria-hidden="true" /> View source <ArrowRight size={16} aria-hidden="true" /></a><Link className="button primary" href="/#extractor" title="Start the Soul Color Test">Take the test <ArrowRight size={16} aria-hidden="true" /></Link></div></section>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     </main>
   );

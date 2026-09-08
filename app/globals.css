@@ -1356,6 +1356,102 @@ summary:focus-visible {
   align-items: start;
 }
 
+.test-format-section,
+.evidence-section {
+  grid-template-columns: 0.78fr 1.22fr;
+  gap: 32px;
+  align-items: start;
+  padding-top: 42px;
+  padding-bottom: 42px;
+  border-bottom: 1px solid var(--line);
+}
+
+.comparison-table-wrap {
+  min-width: 0;
+  overflow-x: auto;
+}
+
+.comparison-table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.comparison-table caption {
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-family: var(--font-mono), "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 14px 12px;
+  border-top: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.comparison-table thead th {
+  color: var(--muted);
+  font-family: var(--font-mono), "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.comparison-table tbody th {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.comparison-table tbody td {
+  color: var(--muted);
+}
+
+.source-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.source-item {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.source-item h3 {
+  margin: 0;
+  font-size: 1.08rem;
+}
+
+.source-item p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.source-item cite {
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-style: normal;
+  line-height: 1.5;
+}
+
+.source-item a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: rgba(159, 232, 112, 0.45);
+  text-underline-offset: 4px;
+}
+
 .faq-list {
   display: grid;
   gap: 12px;
@@ -1751,6 +1847,10 @@ summary:focus-visible {
   text-underline-offset: 5px;
 }
 
+.meaning-profile-link {
+  margin-top: 14px;
+}
+
 .copy-card {
   padding: 16px;
 }
@@ -2071,7 +2171,9 @@ summary:focus-visible {
   .report-result-shell,
   .report-sections,
   .sample-layout,
-  .split-section {
+  .split-section,
+  .test-format-section,
+  .evidence-section {
     grid-template-columns: 1fr;
   }
 
@@ -2265,6 +2367,10 @@ summary:focus-visible {
 
   .guide-cta .button {
     width: 100%;
+  }
+
+  .source-grid {
+    grid-template-columns: 1fr;
   }
 
   .assessment-hero .hero-copy h1 {

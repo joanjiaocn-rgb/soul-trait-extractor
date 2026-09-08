@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     description: "See the depth and sections included in a completed Soul Color Test reflection.",
     url: `${site.url}/sample-report`,
     type: "article",
+    siteName: site.name,
     images: [socialImage],
   },
   twitter: { card: "summary_large_image", title: "Soul Color Report Example: Red Determination Profile", description: "See the depth and sections included in a completed Soul Color Test reflection.", images: [socialImage] },
@@ -56,7 +57,7 @@ export default function SampleReportPage() {
           <span className="section-kicker">Example result</span>
           <h1>Your soul color is red.</h1>
           <p>This is the kind of reflection a completed Soul Color Test can produce.</p>
-          <p className="article-meta">By Soul Color Test | Published {siteDates.display} | Updated {siteDates.display}</p>
+          <p className="article-meta">By Soul Color Test | Published <time dateTime={siteDates.published}>{siteDates.publishedDisplay}</time> | Updated <time dateTime={siteDates.modified}>{siteDates.modifiedDisplay}</time></p>
         </div>
         <div className="report-intro-mark" aria-hidden="true"><span>SC</span></div>
       </section>
@@ -98,7 +99,7 @@ export default function SampleReportPage() {
         <ol>{alignmentPlan.map((action, index) => <li key={action}><span>{String(index + 1).padStart(2, "0")}</span>{action}</li>)}</ol>
       </section>
 
-      <section className="report-cta"><div><span className="section-kicker">Ready for yours?</span><h2>Find the pattern behind your color.</h2><p>Choose the 7-question Quick Test or the 16-question Deep Test. Your on-page reflection is free.</p></div><Link className="button primary" href="/#extractor">Take the test<ArrowRight size={16} aria-hidden="true" /></Link></section>
+      <section className="report-cta"><div><span className="section-kicker">Ready for yours?</span><h2>Find the pattern behind your color.</h2><p>Choose the 7-question Quick Test or the 16-question Deep Test. Your on-page reflection is free.</p></div><Link className="button primary" href="/#extractor" title="Start the Soul Color Test">Take the test<ArrowRight size={16} aria-hidden="true" /></Link></section>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     </main>
   );

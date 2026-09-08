@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: ResultPageProps): Promise<Met
     title,
     description,
     alternates: { canonical: url },
-    openGraph: { title, description, url, type: "article", images: [socialImage] },
+    openGraph: { title, description, url, type: "article", siteName: site.name, images: [socialImage] },
     twitter: { card: "summary_large_image", title, description, images: [socialImage] },
   };
 }
@@ -89,9 +89,9 @@ export default async function SoulColorResultPage({ params }: ResultPageProps) {
           <span className="section-kicker mono">SOUL COLOR MEANING</span>
           <h1>{profile.colorName} Soul Color</h1>
           <p className="color-result-lead">{profile.meaning}</p>
-          <p className="article-meta">By Soul Color Test | Published {siteDates.display} | Updated {siteDates.display}</p>
+          <p className="article-meta">By Soul Color Test | Published <time dateTime={siteDates.published}>{siteDates.publishedDisplay}</time> | Updated <time dateTime={siteDates.modified}>{siteDates.modifiedDisplay}</time></p>
           <div className="trait-pills">{profile.traits.map((trait) => <span key={trait}>{trait}</span>)}</div>
-          <div className="color-result-actions"><Link className="button primary" href="/#extractor">Take the Soul Color Test <ArrowRight size={16} aria-hidden="true" /></Link><ResultShare profile={profile} /></div>
+          <div className="color-result-actions"><Link className="button primary" href="/#extractor" title="Start the Soul Color Test">Take the Soul Color Test <ArrowRight size={16} aria-hidden="true" /></Link><ResultShare profile={profile} /></div>
         </div>
         <div className="color-result-mark" aria-hidden="true"><span>{profile.colorName}</span><strong>{profile.name}</strong></div>
       </section>
@@ -115,7 +115,7 @@ export default async function SoulColorResultPage({ params }: ResultPageProps) {
 
       <section className="other-colors" aria-labelledby="other-colors-heading">
         <div className="section-head"><span className="section-kicker">Compare colors</span><h2 id="other-colors-heading">A supporting shade can change the expression.</h2><p>Most test results contain more than one strong signal. Compare the other meanings before treating one label as the whole picture.</p></div>
-        <div className="other-color-links">{otherColors.map((item) => <Link key={item.slug} href={`/results/${item.slug}`} style={{ "--profile-color": item.color } as CSSProperties}><span aria-hidden="true" /><div><strong>{item.colorName}</strong><small>{item.name}</small></div><ArrowRight size={16} aria-hidden="true" /></Link>)}</div>
+        <div className="other-color-links">{otherColors.map((item) => <Link key={item.slug} href={`/results/${item.slug}`} title={`Read the ${item.colorName} soul color meaning`} style={{ "--profile-color": item.color } as CSSProperties}><span aria-hidden="true" /><div><strong>{item.colorName}</strong><small>{item.name}</small></div><ArrowRight size={16} aria-hidden="true" /></Link>)}</div>
       </section>
 
       <section className="guide-faq" aria-labelledby="color-faq-heading">
@@ -123,7 +123,7 @@ export default async function SoulColorResultPage({ params }: ResultPageProps) {
         <div className="faq-list">{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div>
       </section>
 
-      <section className="guide-cta"><div><span className="section-kicker">Your turn</span><h2>Is {profile.colorName.toLowerCase()} actually your color?</h2><p>Answer the everyday situations and see which pattern comes through first.</p></div><Link className="button primary" href="/#extractor">Find my soul color <ArrowRight size={16} aria-hidden="true" /></Link></section>
+      <section className="guide-cta"><div><span className="section-kicker">Your turn</span><h2>Is {profile.colorName.toLowerCase()} actually your color?</h2><p>Answer the everyday situations and see which pattern comes through first.</p></div><Link className="button primary" href="/#extractor" title="Start the Soul Color Test">Find my soul color <ArrowRight size={16} aria-hidden="true" /></Link></section>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     </main>
   );

@@ -140,22 +140,22 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
         <div className="page-shell">
           <header className="site-header">
-            <Link className="brand" href="/" aria-label={`${site.name} home`}>
+            <Link className="brand" href="/" aria-label={`${site.name} home`} title={`${site.name} home`}>
               <span className="brand-mark" aria-hidden="true">SC</span>
               <span>{site.shortName}</span>
             </Link>
             <nav className="nav-links" aria-label="Main navigation">
               {routes.slice(0, 3).map((route) => (
-                <Link key={route.path} href={route.path}>
+                <Link key={route.path} href={route.path} title={route.label}>
                   {route.label}
                 </Link>
               ))}
             </nav>
             <div className="header-actions">
-              <Link className="button secondary header-link" href="/sample-report">
+              <Link className="button secondary header-link" href="/sample-report" title="Read the sample soul color report">
                 Sample
               </Link>
-              <Link className="button primary header-link" href="/#extractor">
+              <Link className="button primary header-link" href="/#extractor" title="Start the Soul Color Test">
                 Start
                 <ArrowRight size={16} aria-hidden="true" />
               </Link>
@@ -170,7 +170,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               </div>
               <nav className="footer-links" aria-label="Footer navigation">
                 {footerRoutes.map((route) => (
-                  <Link key={route.path} href={route.path}>
+                  <Link key={route.path} href={route.path} title={route.label}>
                     {route.label}
                   </Link>
                 ))}
